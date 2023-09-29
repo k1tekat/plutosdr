@@ -3,23 +3,56 @@ import time
 import random as rd
 import matplotlib.pyplot as plt 
 
-def init_array():
-    arr = []
-    for i in range(10, 5000000, rd.randint(100000,300000)):
-        arr.append(i)
-    rd.shuffle(arr)
-    return arr
+lower_Limit = 10
+Upper_Limit = 5000000
+bottom_step = 100000
+top_step = 300000
 
-def print_array(arr = []):
-    n = 0
-    for i in arr:
-        print[n]
-        n=+1
 
-array = []
-array = init_array()
-print_array(array)
+arr = []
+arr_list = []
+arr_np = []
 
+# for i in range(lower_Limit, Upper_Limit, rd.randint(bottom_step,top_step)): #init array
+#     arr.append(i)
+#     rd.shuffle(arr) #mix numbers
+arr = [1,56,214,12,2,12,4,45,6,4,3,1,8,6,4,3,1,555]
+arr_size = len(arr)
+print(arr_size,"\n")
+
+print(arr)
+print("\n")
+
+arr_list = arr.copy()
+arr_np = arr.copy()
+
+print("list ",arr_list)
+print("np ",arr_np)
+
+# arr_list = arr
+# arr_np = arr
+
+start = time.time()
+np.sort(arr_np)
+np_time = time.time() - start
+print(np_time)
+
+start = time.time()
+arr_list.sort()
+list_time = time.time() - start
+print(list_time)
+
+
+print("list ",arr_list)
+print("np ",arr_np)
+
+plt.plot([0,arr_size], [0,np_time], label='NumPy') 
+plt.plot([0,arr_size], [0,list_time], label='Lists') 
+plt.xlabel('Номер элемента') 
+plt.ylabel('Время (с)') 
+plt.grid() 
+plt.legend() 
+plt.show()
 
     
 # for i in range(10, 5000000, rd.randint(10000,30000)): 
