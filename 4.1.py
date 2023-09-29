@@ -13,10 +13,11 @@ arr = []
 arr_list = []
 arr_np = []
 
-# for i in range(lower_Limit, Upper_Limit, rd.randint(bottom_step,top_step)): #init array
-#     arr.append(i)
-#     rd.shuffle(arr) #mix numbers
-arr = [1,56,214,12,2,12,4,45,6,4,3,1,8,6,4,3,1,555]
+for i in range(lower_Limit, Upper_Limit, rd.randint(bottom_step,top_step)): #init array
+    arr.append(i)
+    rd.shuffle(arr) #mix numbers
+#arr = [1,56,214,12,2,12,4,45,6,4,3,1,8,6,4,3,1,555]
+
 arr_size = len(arr)
 print(arr_size,"\n")
 
@@ -24,7 +25,7 @@ print(arr)
 print("\n")
 
 arr_list = arr.copy()
-arr_np = arr.copy()
+arr_np = np.copy(arr)
 
 print("list ",arr_list)
 print("np ",arr_np)
