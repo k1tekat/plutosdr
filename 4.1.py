@@ -4,17 +4,20 @@ import random as rd
 import matplotlib.pyplot as plt 
 
 lower_Limit = 10
-Upper_Limit = 500000000000
+Upper_Limit = 500000000
 bottom_step = 10000
 top_step = 30000
 
 arr = []
-
+start = time.time()
 for i in range(lower_Limit, Upper_Limit, rd.randint(bottom_step,top_step)): #preparing the array
     arr.append(i)
 rd.shuffle(arr) #mix numbers
 
-arr_size = len(arr)
+print("time init array: ",time.time()-start)
+print("array init!\n")
+
+arr_size = len(arr)#number of elements in arr
 
 arr_list = []
 arr_np = np.array(arr_size) #init list and numpy array
@@ -31,7 +34,7 @@ print("np time:",
 start = time.time()
 arr_list.sort()
 list_time = time.time() - start
-print("np time:",
+print("list time:",
       (list_time) * 10**3, "ms")
 print("arrsize: ",arr_size,"/n")
 plt.plot([0,arr_size], [0,(np_time * 10**3/1000)], label='NumPy') 
