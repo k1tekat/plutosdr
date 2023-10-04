@@ -22,29 +22,22 @@ arr_np = np.array(arr_size) #init list and numpy array
 arr_list = arr.copy()
 arr_np = np.copy(arr) #copy arr in list and numpy array
 
-#buf_time_start = time.time()
-start = buf_time_start = time.time()
+start = time.time()
 arr_np = np.sort(arr_np)
 np_time = time.time() - start
-#print("buf_time= ",buf_time_start,"\t now_time=",start)
-#print("np time: ",np_time)
 print("np time:",
       (np_time) * 10**3, "ms")
 
 start = time.time()
 arr_list.sort()
 list_time = time.time() - start
-#print("list time: ",list_time)
 print("np time:",
       (list_time) * 10**3, "ms")
-
-#print("np = ",arr_np)
-#print("list = ",arr_list)
-
-plt.plot([0,arr_size], [0,(np_time * 10**3)], label='NumPy') 
-plt.plot([0,arr_size], [0,(list_time* 10**3)], label='Lists') 
+print("arrsize: ",arr_size,"/n")
+plt.plot([0,arr_size], [0,(np_time * 10**3/1000)], label='NumPy') 
+plt.plot([0,arr_size], [0,(list_time* 10**3/1000)], label='Lists') 
 plt.xlabel('Номер элемента') 
-plt.ylabel('Время (ms)') 
+plt.ylabel('Время (c)') 
 plt.grid() 
 plt.legend() 
 plt.show()
